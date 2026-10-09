@@ -1,0 +1,66 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/api/health"
+    },
+    {
+      "source": "/pay/:invoice_id",
+      "destination": "/pay.html"
+    },
+    {
+      "source": "/v1/payment/status/:invoice_id",
+      "destination": "/api/v1/payment/status?invoice_id=:invoice_id"
+    },
+    {
+      "source": "/v1/payment/public/:invoice_id",
+      "destination": "/api/v1/payment/public?invoice_id=:invoice_id"
+    },
+    {
+      "source": "/v1/payment/:action",
+      "destination": "/api/v1/payment/:action"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/pay(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        }
+      ]
+    }
+  ],
+  "functions": {
+    "api/**/*.js": {
+      "maxDuration": 30
+    }
+  }
+}
