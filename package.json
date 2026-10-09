@@ -1,0 +1,9 @@
+{
+  "name": "epaydeshi",
+  "version": "1.0.0",
+  "description": "Open source bKash / Nagad / Upay / Rocket auto payment gateway (Node.js + Vercel + Firebase Realtime Database)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
