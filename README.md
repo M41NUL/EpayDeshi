@@ -71,13 +71,13 @@ Node.js &nbsp;•&nbsp; Vercel &nbsp;•&nbsp; Firebase Realtime Database
 ```json
 {
   "rules": {
-    "transactions": { ".read": true, ".write": true },
-    "invoices":     { ".read": true, ".write": true },
-    "pay_tokens":   { ".read": true, ".write": true },
-    "claims":       { ".read": true, ".write": true }
+    ".read": true,
+    ".write": true
   }
 }
 ```
+
+> ⚠️ এই রুলসে পুরো ডাটাবেস সবার জন্য খোলা। Database URL যার কাছে থাকবে সে সব ডেটা পড়তে, বদলাতে বা মুছে ফেলতে পারবে। তাই URL গোপন রাখুন এবং এই Firebase প্রজেক্টে অন্য কিছু রাখবেন না। Test mode ৩০ দিন পর বন্ধ হয়, তাই Rules অবশ্যই Publish করুন।
 
 গেটওয়ে ও অ্যাপ শুধু এই ৪টা path ব্যবহার করে, বাকি সব বন্ধ থাকে।
 
